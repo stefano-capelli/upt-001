@@ -1,0 +1,75 @@
+<script>
+function getInputNodesList()
+{
+    return document.querySelectorAll('div.product-selection input[type="checkbox"]');
+}
+
+function submitForm()
+{
+    if (document.forms.basket.getAttribute("enabled") === "enabled")
+    {
+        document.forms.basket.submit();
+    }
+}
+
+function onload_handler()
+{
+    const nl = getInputNodesList();
+
+    for (let i=0; i<nl.length; i++) {
+        nl[i].addEventListener('change', update_basket);
+    }
+
+    document.getElementById('submit-button').addEventListener('click', submitForm);
+}
+
+function update_basket()
+{
+    const nl = getInputNodesList();
+    let enabledFlag = false;
+
+//  When the customer chooses to checkout, the customer's customerID and list of selected products
+//  are posted to the confirmation page
+    let html = '<input type="hidden" name="customerId" value="{{customerId}}" />';
+
+    for (let i=0; i<nl.length; i++) {
+        if (nl[i].checked)
+        {
+            enabledFlag = true;
+            html += '<p>' + nl[i].nextSibling.nodeValue + '</p>' +
+                    '<input type="hidden" name="prodId" value="' + nl[i].name + '" />';
+        }
+    }
+
+    document.forms.basket.setAttribute("enabled", enabledFlag ? "enabled" : "disabled");
+    document.querySelector("div.basket div:first-of-type").innerHTML = html;
+}
+
+</script>
+
+<div>
+    <div class="product-selection">
+        <p>Sports</p>
+    {{#each products}}
+        {{#if ./sports}}<p><label><input type="checkbox" name="{{id}}" />{{channel}}</label></p>{{/if}}
+    {{/each}}
+    </div>
+
+    <div class="product-selection">
+        <p>News</p>
+    {{#each products}}
+        {{#if ./news}}<p><label><input type="checkbox" name="{{id}}" />{{channel}}</label></p>{{/if}}
+    {{/each}}
+    </div>
+
+    <div class="basket">
+        <p>Basket</p>
+        <form name="basket" action="/app/confirmation" method="post">
+        <div></div>
+        <div>
+            <input type="hidden" name="_csrf" value="{{_csrfToken}}" />
+            <div id="submit-button">Checkout</div>
+        </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<script>
+function onload_handler() { }
+</script>
+
+<div>
+    <div class="confirmation">
+    <form name="confirm" action="/app/confirmation" method="post">
+        <input type="hidden" name="customerId" value="{{customerId}}" />
+
+    {{#each products}}
+        <p>{{channelName}}</p><input type="hidden" name="prodId" value="{{channelId}}" />
+    {{/each}}
+    </form>
+    </div>
+</div>

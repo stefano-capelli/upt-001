@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+    <title>Sky Shop</title>
+    <script src="/lib/handlebars.min.js"></script>
+    <style type="text/css">
+    body {
+        font-family: sans-serif;
+    }
+
+    div.wireframe {
+        border: 1px solid blue;
+        padding: 20px;
+        text-align: center;
+    }
+
+    div.wireframe:first-of-type {
+        font-size: 1.2em;
+    }
+
+    div.wireframe:last-of-type {
+        font-size: 0.9em;
+    }
+
+    div.product-selection,
+    div.basket {
+        vertical-align: top;
+        display: inline-block;
+        margin: 30px 20px 30px 0px;
+        box-sizing: border-box;
+        border: 1px solid blue;
+        width: calc(100%/3 - 20px);
+        min-height: 234px;
+    }
+
+    div.basket {
+        margin: 30px 0px 30px 10px;
+    }
+
+    div.product-selection > p:first-child,
+    div.basket >p:first-child {
+        margin: 6px 6px;
+        text-align: center;
+    }
+
+    div.basket div:first-child {
+        vertical-align: top;
+        min-height: 145px;
+        margin: 8px;
+        border: 1px solid blue;
+    }
+
+    div.basket div:last-child {
+        text-align: center;
+        vertical-align: bottom;
+    }
+
+    div.product-selection input[type='checkbox'] {
+        margin-right: 10px;
+    }
+
+    div.product-selection p {
+        margin: 16px 12px;
+    }
+
+    div.basket p {
+        margin: 8px;
+    }
+
+    div#submit-button {
+        margin: 8px;
+        padding: 8px;
+        border: 1px solid blue;
+        cursor: pointer;
+        min-width: 100px;
+    }
+
+    div.confirmation {
+        margin: 30px 20px 30px 0px;
+        border: 1px solid blue;
+        min-height: 160px;
+    }
+
+    div.confirmation p {
+        margin: 12px;
+        padding: 4px;
+    }
+    </style>
+    <script>
+    window.addEventListener("load", function() { onload_handler(); });
+    </script>
+</head>
+<body>
+    <div class="wireframe">{{textTop}}</div>
+
+    {{{body}}}
+
+    <div class="wireframe">{{textBottom}}</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+# On a Windows or Linux PC, install Node v6.11.2 LTS
+
+# Extract the package to chosen path to the file system, e.g.: C:\Sky-test
+
+# Then open a shell, for instance on Windows:
+cmd.exe
+
+# Change path to the chosen directory, for instance on Windows:
+cd C:\Sky-test
+
+# Install the necessary packages with the following command
+npm install
+
+# then cd into the 'root' directory
+cd root
+#or
+cd C:\Sky-test\root
+
+# start the node server
+node --use-strict server.js
+
+# on the same PC, open a browser, and paste these test test URLs in the address bar
+# performing a test for each of them
+http://localhost:3000/app/login?custId=123101
+http://localhost:3000/app/login?custId=123102
+http://localhost:3000/app/login?custId=123103
+http://localhost:3000/app/login?custId=
+http://localhost:3000/app/login?custId=12310
+http://localhost:3000/app/login?custId=123100
+
+
+### Technical notes ###
+We're using Node v6.11.2 LTS, the latest LTS version, so we need exactly these versions for the packages below:
+"connect": "2.8.0",
+"connect-rest": "0.9.14"
+
+even if connect@2.8.0 will result as deprecated.
+
+for reference:
+https://www.npmjs.com/package/connect
+https://www.npmjs.com/package/connect-rest
+
