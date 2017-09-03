@@ -38,7 +38,7 @@ app.get('/app/login', function (req, res) {
 //  present, which will hold a customer identifier.
 
 //  if (req.query.custId && /\w{6,}/.test(req.query.custId))
-    if (true)
+    if (true)  // Relaxing the parameter validation here allows an easier testing of the services
     {
         req.session.authenticated = 1;
         req.session.customerId = req.query.custId;
@@ -53,6 +53,7 @@ app.get('/app/login', function (req, res) {
 });
 
 // The authentication check should be done here (out of scope for the test)
+
 app.get('/app/product-selection', function (req, res) {
     if (req.session.authenticated && req.session.authenticated === 1)
     {
