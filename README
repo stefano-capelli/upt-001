@@ -1,6 +1,7 @@
 # On a Windows or Linux PC, install Node v6.11.2 LTS
+https://nodejs.org/
 
-# Extract the package to chosen path to the file system, e.g.: C:\Sky-test
+# Download the package from GitHub and extract it to a chosen directory, e.g.: C:\Sky-test
 
 # Then open a shell, for instance on Windows:
 cmd.exe
@@ -13,14 +14,15 @@ npm install
 
 # then cd into the 'root' directory
 cd root
-#or
+
+# or
 cd C:\Sky-test\root
 
 # start the node server
 node --use-strict server.js
 
-# on the same PC, open a browser, and paste these test test URLs in the address bar
-# performing a test for each of them
+# open a browser on the same PC, and point it to the following URLs
+# in order to carry out a functional test, or read an error message
 http://localhost:3000/app/login?custId=123101
 http://localhost:3000/app/login?custId=123102
 http://localhost:3000/app/login?custId=123103
@@ -29,14 +31,13 @@ http://localhost:3000/app/login?custId=12310
 http://localhost:3000/app/login?custId=123100
 
 
-### Technical notes ###
+### Technical note ###
 We're using Node v6.11.2 LTS, the latest LTS version, so we need exactly these versions for the packages below:
 "connect": "2.8.0",
 "connect-rest": "0.9.14"
 
-even if connect@2.8.0 will result as deprecated.
+even if connect@2.8.0 will result as deprecated during the installation
 
 for reference:
 https://www.npmjs.com/package/connect
 https://www.npmjs.com/package/connect-rest
-
